@@ -1,2 +1,2 @@
-# pomoScript
-Podoro shell scipt for linux
+# pomodoroScript
+Podoro shell script for linux
