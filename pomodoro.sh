@@ -15,7 +15,14 @@ if [ $BLINK1_ENABLED ]
 	sudo ${BLINK1_BIN} --${BUSSY_COLOR} > /dev/null
 fi
 
-sleep ${POMODORO_TIME}
+COUNTER=0
+while [ ${COUNTER} -lt ${POMODORO_TIME} ]; do
+	sleep 1
+	let REMAINING=${POMODORO_TIME}-${COUNTER}
+	echo -ne "${REMAINING} seconds remaining of Pomodoro.\r"
+	let COUNTER=COUNTER+1
+done
+echo -ne "\n"
 
 ### Taking a break
 echo ${BREAK_NOTIFICATION}
@@ -29,7 +36,14 @@ if [ $BLINK1_ENABLED ]
 	sudo ${BLINK1_BIN} --${BREAK_COLOR} > /dev/null
 fi
 
-sleep ${DEFAULT_BREAK_TIME}
+COUNTER=0
+while [ ${COUNTER} -lt ${DEFAULT_BREAK_TIME} ]; do
+	sleep 1
+	let REMAINING=${DEFAULT_BREAK_TIME}-${COUNTER}
+	echo -ne "${REMAINING} seconds remaining of break.\r"
+	let COUNTER=COUNTER+1
+done
+echo -ne "\n"
 
 ### Beeing available
 echo ${AVAILABLE_NOTIFICATION}

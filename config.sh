@@ -2,6 +2,9 @@
 
 POMODORO_TIME=$1
 
+# Pomodoro time in seconds
+DEFAULT_POMODORO_TIME=1500
+
 if [ $# -eq 0 ]
 	then
 	POMODORO_TIME=${DEFAULT_POMODORO_TIME}
@@ -10,8 +13,6 @@ fi
 
 # Default config values
 
-# Pomodoro time in seconds
-DEFAUL_POMODORO_TIME=1500
 
 # Break time
 DEFAULT_BREAK_TIME=300
