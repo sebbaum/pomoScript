@@ -12,11 +12,11 @@ fi
 
 if [ $BLINK1_ENABLED ]
 	then
-	sudo ${BLINK1_BIN} --${BUSSY_COLOR} > /dev/null
+	${BLINK1_BIN} --${BUSSY_COLOR} > /dev/null
 fi
 
 COUNTER=0
-while [ ${COUNTER} -lt ${POMODORO_TIME} ]; do
+while [ ${COUNTER} -le ${POMODORO_TIME} ]; do
 	sleep 1
 	let REMAINING=${POMODORO_TIME}-${COUNTER}
 	echo -ne "${REMAINING} seconds remaining of Pomodoro.\r"
@@ -33,11 +33,11 @@ fi
 spd-say -i ${SOUND_VOLUME} "${BREAK_SOUND}"
 if [ $BLINK1_ENABLED ]
 	then
-	sudo ${BLINK1_BIN} --${BREAK_COLOR} > /dev/null
+	${BLINK1_BIN} --${BREAK_COLOR} > /dev/null
 fi
 
 COUNTER=0
-while [ ${COUNTER} -lt ${DEFAULT_BREAK_TIME} ]; do
+while [ ${COUNTER} -le ${DEFAULT_BREAK_TIME} ]; do
 	sleep 1
 	let REMAINING=${DEFAULT_BREAK_TIME}-${COUNTER}
 	echo -ne "${REMAINING} seconds remaining of break.\r"
@@ -54,7 +54,7 @@ fi
 spd-say -i ${SOUND_VOLUME} "${AVAILABLE_SOUND}"
 if [ $BLINK1_ENABLED ]
 	then
-	sudo ${BLINK1_BIN} --${AVAILABLE_COLOR} > /dev/null
+	${BLINK1_BIN} --${AVAILABLE_COLOR} > /dev/null
 fi
 
 
